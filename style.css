@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.display {
+    width:500px;
+    height: 600px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "result result result result"
+        "first first first first"
+        "second second second second"
+        "third third third third"
+        "fourth fourth fourth fourth"
+        "fifth fifth fifth fifth";
+
+    background-color: black;
+    gap: 2px;
+    margin-inline: 0px;    
+}   
+
+.result {
+    grid-area: result;
+    color: #fff;
+    display: flex;
+    justify-content: right;
+    font-size: 80px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.first-row {
+    grid-area: first;
+    display: flex;
+}
+
+#C {
+    width: 50%;
+}
+
+.second-row {
+    grid-area: second;
+    display: flex;
+}
+
+.third-row {
+    grid-area: third;
+    display: flex;
+}
+
+.fourth-row {
+    grid-area: fourth;
+    display: flex;
+}
+
+.fifth-row {
+    grid-area: fifth;
+    display: flex;
+}
+
+#zero {
+    width: 75%;
+}
+
+
+.standard-button {
+    height: 100%;
+    width: 25%;
+    background-color: #d8d9db;
+    font-size: xx-large;
+    border: none;
+    margin-inline: 1px;
+}
+
+.operation-button {
+    height: 100%;
+    width:25%;
+    background-color: #df974c;
+    font-size: xx-large;
+    color: white;
+    border: none;
+    margin-inline: 1px;
+}
+
+.standard-button:hover {
+    background-color:#efefef;
+}
+
+.standard-button:active {
+    background-color: #d8d9db99;
+}
+
+.operation-button:hover {
+    background-color: #fabe7e;
+}
+
+.operation-button:active {
+    background-color: #c56b0b;
+}
+
