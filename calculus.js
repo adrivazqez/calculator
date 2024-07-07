@@ -21,7 +21,7 @@ digitButtons.forEach(function (digitButton) {
 const clearButton = document.getElementById("clear");
 
 clearButton.addEventListener("click", function () {
-    clearDisplay()
+    clearCalculator()
 })
 
 // Funcionalidad "Add" del botón +
@@ -36,6 +36,16 @@ addButton.addEventListener('click', function () {
 
 function clearDisplay() {
     display.innerText = '0'
+}
+
+function clearOperands() {
+    firstOperand = null
+    secondOperand = null
+}
+
+function clearCalculator() {
+    clearDisplay()
+    clearOperands()
 }
 
 
