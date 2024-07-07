@@ -1,6 +1,6 @@
 // Variable que obtendrá el número que aparece en la pantalla de la calculadora la primera vez
-let register = document.querySelector(".result")
-let elementsInRegister = Array.from(register);
+let display = document.querySelector(".result")
+let digitsInDisplay = ""
 
 
 const buttonsFourthRow = document.querySelector(".fourth-row");
@@ -8,35 +8,21 @@ const buttonsThirdRow = document.querySelector(".third-row");
 const buttonsSecondRow = document.querySelector(".second-row");
 const zeroButton = document.getElementById("zero");
 
+const digitButtons = document.querySelectorAll('.digit-button')
 
-// addEventListener para los botones que añaden números a la calculadora
-buttonsFourthRow.addEventListener("click", function (event){
-    elementsInRegister.push(`${event.target.innerText}`)
-    register.innerText = elementsInRegister.join("");
-})
-
-buttonsThirdRow.addEventListener("click", function (event) {
-    elementsInRegister.push(`${event.target.innerText}`)
-    register.innerText = elementsInRegister.join("");
-})
-
-buttonsSecondRow.addEventListener("click", function(event){
-    elementsInRegister.push(`${event.target.innerText}`)
-    register.innerText = elementsInRegister.join("");
-})
-
-zeroButton.addEventListener("click", function (event){
-    elementsInRegister.push(`${event.target.innerText}`)
-    register.innerText = elementsInRegister.join("");
-})
-
+for(i = 0; i < digitButtons.length; i++) {
+    digitButtons[i].addEventListener('click', function(event) {
+        digitsInDisplay += event.target.innerText
+        display.innerText = digitsInDisplay;
+    })
+}
 
 // Funcionalidad "clear" del botón C
 const deleteButton = document.getElementById("C");
 
 deleteButton.addEventListener("click", function () {
-    elementsInRegister.splice(0, elementsInRegister.length)
-    register.innerText = "0";
+    digitsInDisplay.splice(0, digitsInDisplay.length)
+    display.innerText = "0";
 })
 
 
@@ -52,11 +38,11 @@ const divideButton = document.getElementById("divide");
 
 // addEventListener para las funciones de operación -- WIP
 plusButton.addEventListener("click", function () {
-    parseInt(register.innerText);
-    storage = register.innerText;
+    parseInt(display.innerText);
+    storage = display.innerText;
 
-    elementsInRegister.splice(0, elementsInRegister.length)
-    register.innerText = "0"
+    digitsInDisplay.splice(0, digitsInDisplay.length)
+    display.innerText = "0"
 
     console.log(storage);
 })
