@@ -1,28 +1,24 @@
 // Variable que obtendrá el número que aparece en la pantalla de la calculadora la primera vez
 let display = document.querySelector(".result")
-let digitsInDisplay = ""
-
-
-const buttonsFourthRow = document.querySelector(".fourth-row");
-const buttonsThirdRow = document.querySelector(".third-row");
-const buttonsSecondRow = document.querySelector(".second-row");
-const zeroButton = document.getElementById("zero");
+display.innerText = '0'
 
 const digitButtons = document.querySelectorAll('.digit-button')
 
-for(i = 0; i < digitButtons.length; i++) {
-    digitButtons[i].addEventListener('click', function(event) {
-        digitsInDisplay += event.target.innerText
-        display.innerText = digitsInDisplay;
+digitButtons.forEach(function (digitButton) {
+    digitButton.addEventListener('click', function(event) {
+        if(display.innerText === '0') {
+            display.innerText = ''
+        }
+
+        display.innerText += event.target.innerText
     })
-}
+})
 
 // Funcionalidad "clear" del botón C
-const deleteButton = document.getElementById("C");
+const clearButton = document.getElementById("clear");
 
-deleteButton.addEventListener("click", function () {
-    digitsInDisplay.splice(0, digitsInDisplay.length)
-    display.innerText = "0";
+clearButton.addEventListener("click", function () {
+    display.innerText = "0"
 })
 
 
@@ -38,21 +34,11 @@ const divideButton = document.getElementById("divide");
 
 // addEventListener para las funciones de operación -- WIP
 plusButton.addEventListener("click", function () {
-    parseInt(display.innerText);
-    storage = display.innerText;
+    parseInt(register.innerText);
+    storage = register.innerText;
 
-    digitsInDisplay.splice(0, digitsInDisplay.length)
-    display.innerText = "0"
+    elementsInRegister.splice(0, elementsInRegister.length)
+    register.innerText = "0"
 
     console.log(storage);
 })
-
-
-
-
-
-
-
-
-
-   
