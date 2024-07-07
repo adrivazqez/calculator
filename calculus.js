@@ -2,6 +2,9 @@
 let display = document.querySelector(".result")
 display.innerText = '0'
 
+let firstOperand
+let secondOperand
+
 const digitButtons = document.querySelectorAll('.digit-button')
 
 digitButtons.forEach(function (digitButton) {
@@ -18,9 +21,20 @@ digitButtons.forEach(function (digitButton) {
 const clearButton = document.getElementById("clear");
 
 clearButton.addEventListener("click", function () {
-    display.innerText = "0"
+    clearDisplay()
 })
 
+const addButton = document.getElementById('add')
+
+addButton.addEventListener('click', function () {
+    firstOperand = parseInt(display.innerText)
+
+    clearDisplay()
+})
+
+function clearDisplay() {
+    display.innerText = '0'
+}
 
 // Variable que almacenará el primer número de la operación introducido por el usuario
 let storage = 0
