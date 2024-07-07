@@ -24,6 +24,8 @@ clearButton.addEventListener("click", function () {
     clearDisplay()
 })
 
+// Funcionalidad "Add" del botón +
+
 const addButton = document.getElementById('add')
 
 addButton.addEventListener('click', function () {
@@ -35,6 +37,16 @@ addButton.addEventListener('click', function () {
 function clearDisplay() {
     display.innerText = '0'
 }
+
+
+// Funcionalidad "Operate" del botón =
+
+const operateButton = document.getElementById('operate')
+
+operateButton.addEventListener('click', function() {
+    secondOperand = parseInt(display.innerText)
+    display.innerText = firstOperand + secondOperand
+})
 
 // Variable que almacenará el primer número de la operación introducido por el usuario
 let storage = 0
