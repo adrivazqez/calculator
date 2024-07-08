@@ -14,76 +14,106 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
         "result result result result"
-        "first first first first"
-        "second second second second"
-        "third third third third"
-        "fourth fourth fourth fourth"
-        "fifth fifth fifth fifth";
-
+        "clear clear erase divide"
+        "7 8 9 multiply"
+        "4 5 6 subtract"
+        "3 2 1 add"
+        "zero zero zero operate";
     background-color: black;
-    gap: 2px;
-    margin-inline: 0px;    
 }   
 
 .result {
     grid-area: result;
     color: #fff;
-    display: flex;
-    justify-content: right;
+    text-align: right;
     font-size: 80px;
     font-family: 'Courier New', Courier, monospace;
 }
-.first-row {
-    grid-area: first;
-    display: flex;
+
+
+#1 {
+    grid-area: 1;
 }
 
-#C {
-    width: 50%;
+#2 {
+    grid-area: 2;
 }
 
-.second-row {
-    grid-area: second;
-    display: flex;
+#3 {
+    grid-area: 3;
 }
 
-.third-row {
-    grid-area: third;
-    display: flex;
+#4 {
+    grid-area: 4;
 }
 
-.fourth-row {
-    grid-area: fourth;
-    display: flex;
+#5 {
+    grid-area: 5;
 }
 
-.fifth-row {
-    grid-area: fifth;
-    display: flex;
+#6 {
+    grid-area: 6;
 }
+
+#7 {
+    grid-area: 7;
+}
+
+#8  {
+    grid-area: 8;
+}
+
+#9 {
+    grid-area: 9;
+}
+
+
+#clear {
+    grid-area: clear;
+}
+
 
 #zero {
-    width: 75%;
+    grid-area: zero;
+}
+
+
+#erase {
+    grid-area: erase;
+}
+
+#multiply {
+    grid-area: multiply;
+}
+
+#divide {
+    grid-area: divide;
+}
+
+#add {
+    grid-area: add;
+}
+
+#subtract {
+    grid-area: subtract;
+}
+
+#operate {
+    grid-area: operate;
 }
 
 
 .standard-button {
-    height: 100%;
-    width: 25%;
     background-color: #d8d9db;
     font-size: xx-large;
-    border: none;
-    margin-inline: 1px;
+    border: 1px solid black;
 }
 
 .operation-button {
-    height: 100%;
-    width:25%;
     background-color: #df974c;
     font-size: xx-large;
     color: white;
-    border: none;
-    margin-inline: 1px;
+    border: 1px solid black;
 }
 
 .standard-button:hover {
