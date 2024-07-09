@@ -38,6 +38,22 @@ addButton.addEventListener('click', function () {
 
 const subtractButton = document.getElementById("subtract")
 
+subtractButton.addEventListener("click", function () { 
+    firstOperand = parseInt(display.innerText)
+
+    clearDisplay ()
+})
+
+// funcionalidad "erase" del botón arrow
+
+const eraseButton = document.getElementById("erase")
+
+eraseButton.addEventListener("click", function () {
+    erase ()
+})
+
+
+//Funciones usadas en los botones
 function clearDisplay() {
     display.innerText = '0'
 }
@@ -52,7 +68,13 @@ function clearCalculator() {
     clearOperands()
 }
 
+function erase () {
+    if (display.innerText.length === 1){
+        display.innerText = "0"
+    }else {
+        display.innerText = display.innerText.slice(0,-1)}
 
+}
 // Funcionalidad "Operate" del botón =
 
 const operateButton = document.getElementById('operate')
@@ -62,4 +84,4 @@ operateButton.addEventListener('click', function() {
     display.innerText = firstOperand + secondOperand
 })
 
-// Variable que almacenará el primer número de la operación introducido por el usuario
+
