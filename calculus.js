@@ -2,8 +2,8 @@
 let display = document.querySelector(".result")
 display.innerText = '0'
 
-let firstOperand
-let secondOperand
+let buffer = null
+let lastOperatorClicked = null
 
 const digitButtons = document.querySelectorAll('.digit-button')
 
@@ -17,6 +17,15 @@ digitButtons.forEach(function (digitButton) {
     })
 })
 
+// Registro de última operación que debe aplicarse al último número insertado por el usuario
+const operationButtons = document.querySelectorAll(".operation-button")
+
+operationButtons.forEach(function (operationButton){
+    operationButton.addEventListener("click", function(event) {
+        lastOperatorClicked = event.target.innerText
+    })
+})
+
 // Funcionalidad "clear" del botón C
 const clearButton = document.getElementById("clear");
 
@@ -25,12 +34,14 @@ clearButton.addEventListener("click", function () {
 })
 
 // Funcionalidad "Add" del botón +
-
 const addButton = document.getElementById('add')
 
 addButton.addEventListener('click', function () {
-    firstOperand = parseInt(display.innerText)
-
+    if (buffer === null) {
+        buffer += parseInt(display.innerText)
+    } else {
+        buffer += parseInt(display.innerText)
+    }
     clearDisplay()
 })
 
@@ -39,13 +50,39 @@ addButton.addEventListener('click', function () {
 const subtractButton = document.getElementById("subtract")
 
 subtractButton.addEventListener("click", function () { 
-    firstOperand = parseInt(display.innerText)
-
+    if (buffer === null) {
+        buffer = parseInt(display.innerText)
+    } else {
+        buffer -= parseInt(display.innerText)
+    }
     clearDisplay ()
 })
 
-// funcionalidad "erase" del botón arrow
+// Funcionalidad "multiply" del botón x
 
+const multiplyButton = document.getElementById("multiply")
+
+multiplyButton.addEventListener("click", function () {
+    if (buffer === null) {
+        buffer = parseInt(display.innerText)
+    } else {
+    buffer *= parseInt(display.innerText)
+    } 
+    clearDisplay ()   
+})
+
+//Funcionalidad "divide" del botón ÷
+const divideButton = document.getElementById("divide")
+
+divideButton.addEventListener("click", function () {
+    if (buffer === null) {
+        buffer = parseInt(display.innerText)
+    } else {
+        buffer /= parseInt(display.innerText)
+    }
+    clearDisplay ()
+})
+// funcionalidad "erase" del botón arrow
 const eraseButton = document.getElementById("erase")
 
 eraseButton.addEventListener("click", function () {
@@ -58,14 +95,13 @@ function clearDisplay() {
     display.innerText = '0'
 }
 
-function clearOperands() {
-    firstOperand = null
-    secondOperand = null
+function clearBuffer() {
+    buffer = null
 }
 
 function clearCalculator() {
     clearDisplay()
-    clearOperands()
+    clearBuffer()
 }
 
 function erase () {
@@ -80,8 +116,22 @@ function erase () {
 const operateButton = document.getElementById('operate')
 
 operateButton.addEventListener('click', function() {
-    secondOperand = parseInt(display.innerText)
-    display.innerText = firstOperand + secondOperand
+        if (lastOperatorClicked === "+") {
+            buffer += parseInt(display.innerText)
+            display.innerText = buffer
+            clearBuffer ()
+        } else if (lastOperatorClicked === "-") {
+            buffer -= parseInt(display.innerText)
+            display.innerText = buffer
+            clearBuffer ()
+        } else if (lastOperatorClicked === "x") {
+            buffer *= parseInt(display.innerText)
+            display.innerText = buffer
+            clearBuffer ()
+        } else if (lastOperatorClicked === "÷") {
+            buffer /= parseInt(display.innerText)
+            display.innerText = buffer
+            clearBuffer ()
+        }
 })
-
 

@@ -109,7 +109,7 @@ body {
     border: 1px solid black;
 }
 
-.operation-button {
+.operation-button, .equal-button {
     background-color: #df974c;
     font-size: xx-large;
     color: white;
@@ -132,3 +132,10 @@ body {
     background-color: #c56b0b;
 }
 
+.equal-button:hover {
+    background-color: #fabe7e;
+}
+
+.equal-button:active {
+    background-color: #c56b0b;
+}
